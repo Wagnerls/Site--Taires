@@ -1,0 +1,595 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background-color: #000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Seção Hero */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(139, 0, 0, 0.8)), url('images/Mesa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(220, 20, 60, 0.3) 0%, rgba(0, 0, 0, 0.8) 70%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: #FFD700;
+}
+
+.hero-title .subtitle {
+    display: block;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    color: #DC143C;
+}
+
+.hero-description {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+}
+
+/* Botões CTA */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button.primary {
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    color: white;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    transform: translateY(0);
+}
+
+.cta-button.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+}
+
+.cta-button.secondary {
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+}
+
+.cta-button.secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+}
+
+.cta-button.large {
+    padding: 20px 40px;
+    font-size: 1.3rem;
+}
+
+/* Seção de Jogos */
+.games-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #000 0%, #8B0000 50%, #000 100%);
+    position: relative;
+}
+
+.games-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/cartas.jpg');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.games-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.9) 100%);
+    pointer-events: none;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.game-card {
+    background: linear-gradient(145deg, rgba(139, 0, 0, 0.9), rgba(220, 20, 60, 0.8));
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover::before {
+    opacity: 1;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(220, 20, 60, 0.4);
+    border-color: #FFD700;
+}
+
+.game-card.featured {
+    border-color: #DC143C;
+    background: linear-gradient(145deg, rgba(220, 20, 60, 0.9), rgba(255, 69, 0, 0.8));
+}
+
+.game-card.vip {
+    border-color: #FFD700;
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.9), rgba(255, 165, 0, 0.8));
+}
+
+.game-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.game-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.game-description {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.game-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Seção de Depoimentos */
+.testimonials {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #000 0%, #8B0000 50%, #000 100%);
+    position: relative;
+}
+
+.testimonials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/Mao.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.testimonials::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.9) 70%);
+    pointer-events: none;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-card {
+    background: linear-gradient(145deg, rgba(139, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(220, 20, 60, 0.3);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    border-color: #FFD700;
+    box-shadow: 0 15px 30px rgba(220, 20, 60, 0.3);
+}
+
+.testimonial-stars {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-text {
+    color: white;
+    font-style: italic;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    color: #FFD700;
+    font-weight: 600;
+}
+
+/* Seção de Garantia */
+.guarantee {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #8B0000 0%, #000 100%);
+    text-align: center;
+}
+
+.guarantee-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 1rem;
+}
+
+.guarantee-subtitle {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.guarantee-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(220, 20, 60, 0.2);
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.badge-icon {
+    font-size: 1.5rem;
+}
+
+.badge-text {
+    color: white;
+    font-weight: 500;
+}
+
+/* Seção Motivacional */
+.motivational {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #000 0%, #8B0000 50%, #000 100%);
+    position: relative;
+}
+
+.motivational::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/Mesa2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.motivational::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.9) 70%);
+    pointer-events: none;
+}
+
+.motivational-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.motivational-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: #FFD700;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.motivational-text {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Chamada Final */
+.final-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #000 0%, #DC143C 50%, #000 100%);
+    text-align: center;
+    position: relative;
+}
+
+.final-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.final-cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.final-cta-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+.footer {
+    padding: 2rem 0;
+    background: #000;
+    text-align: center;
+    border-top: 1px solid rgba(220, 20, 60, 0.3);
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-title .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .game-card {
+        padding: 1.5rem;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .guarantee-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .final-cta-title, .motivational-title {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-title .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    .cta-button.large {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+    
+    .game-card {
+        padding: 1rem;
+    }
+    
+    .game-icon {
+        font-size: 2.5rem;
+    }
+    
+    .game-title {
+        font-size: 1.3rem;
+    }
+    
+    .game-price {
+        font-size: 1.8rem;
+    }
+    
+    .motivational-text {
+        font-size: 1.1rem;
+    }
+}
+
